@@ -1,2 +1,2 @@
-# sge23
-Sistemas de gestíon empresarial 2dam
+# sge22
+Repositorio Sistemas de Gestión Empresarial 2022/2023

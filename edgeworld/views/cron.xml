@@ -1,0 +1,17 @@
+<odoo>
+    <data>
+        <record model="ir.cron" forcecreate="True" id="edgeworld.cron_resources">
+            <field name="name">Game: Generate Resources</field>
+            <field name="model_id" ref="model_edgeworld_base"/>
+            <field name="state">code</field>
+            <field name="code">model.update_resources()</field>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field name="activity_user_type">specific</field>
+            <field name="doall" eval="False" />
+        </record>
+    </data>
+</odoo>
+

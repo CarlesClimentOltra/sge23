@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_edgeworld_player,edgeworld.player,model_edgeworld_player,base.group_user,1,1,1,1
+access_edgeworld_base,edgeworld.base,model_edgeworld_base,base.group_user,1,1,1,1
+access_edgeworld_sector,edgeworld.sector,model_edgeworld_sector,base.group_user,1,1,1,1
+access_edgeworld_troop,edgeworld.troop,model_edgeworld_troop,base.group_user,1,1,1,1
+access_edgeworld_troop_type,edgeworld.troop_type,model_edgeworld_troop_type,base.group_user,1,1,1,1
+access_edgeworld_defense_building,edgeworld.defense_building,model_edgeworld_defense_building,base.group_user,1,1,1,1
+access_edgeworld_defense_building_type,edgeworld.defense_building_type,model_edgeworld_defense_building_type,base.group_user,1,1,1,1
+access_edgeworld_building,edgeworld.building,model_edgeworld_building,base.group_user,1,1,1,1
+access_edgeworld_building_type,edgeworld.building_type,model_edgeworld_building_type,base.group_user,1,1,1,1
+access_edgeworld_resource_building,edgeworld.resource_building,model_edgeworld_resource_building,base.group_user,1,1,1,1
+access_edgeworld_resource_building_type,edgeworld.resource_building_type,model_edgeworld_resource_building_type,base.group_user,1,1,1,1
+access_edgeworld_battles,edgeworld.battles,model_edgeworld_battles,base.group_user,1,1,1,1

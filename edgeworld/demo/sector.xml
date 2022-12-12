@@ -1,0 +1,47 @@
+<odoo>
+    <data>
+
+          <!--SECTOR-->
+          <record id="edgeworld.sector_andromeda" model="edgeworld.sector">
+            <field name="name">Andromeda</field>
+            <field name="population">1</field>
+          </record>
+          <record id="edgeworld.sector_omega_centauri" model="edgeworld.sector">
+            <field name="name">Omega Centauri</field>
+            <field name="population">1</field>
+          </record>
+          <record id="edgeworld.sector_centaurus_a" model="edgeworld.sector">
+            <field name="name">Centaurus A</field>
+            <field name="population">1</field>
+          </record>
+          <record id="edgeworld.sector_helix" model="edgeworld.sector">
+            <field name="name">Helix</field>
+            <field name="population">2</field>
+          </record>
+          <record id="edgeworld.sector_pegasus" model="edgeworld.sector">
+            <field name="name">Pegasus</field>
+            <field name="population">2</field>
+          </record>
+          <record id="edgeworld.sector_aquila" model="edgeworld.sector">
+            <field name="name">Aquila</field>
+            <field name="population">2</field>
+          </record>
+          <record id="edgeworld.sector_lateralus_galaxy" model="edgeworld.sector">
+            <field name="name">Lateralus Galaxy</field>
+            <field name="population">3</field>
+          </record>
+          <record id="edgeworld.sector_phoenix_galaxy" model="edgeworld.sector">
+            <field name="name">Phoenix Galaxy</field>
+            <field name="population">4</field>
+          </record>
+          <record id="edgeworld.sector_soulstice_cosmo" model="edgeworld.sector">
+            <field name="name">Soulstice Cosmo</field>
+            <field name="population">4</field>
+          </record>
+          <record id="edgeworld.sector_snake_nebula" model="edgeworld.sector">
+            <field name="name">Snake Nebula</field>
+            <field name="population">5</field>
+          </record>
+
+    </data>
+</odoo>

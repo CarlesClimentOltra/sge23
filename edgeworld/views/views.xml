@@ -1,0 +1,575 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="edgeworld.player_list">
+      <field name="name">edgeworld list</field>
+      <field name="model">edgeworld.player</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+          <group>
+            <field name="avatar" widget="image"/>
+            <field name="name"/>
+            <field name="user"/>
+            <field name="age"/>
+            <field name="base" mode="tree">
+              <tree>
+                <field name="name"/>
+                <field name="level"/>
+                <button name="level_up_base" type="object" string="Increase lvl"/>
+                <button name="level_down_base" type="object" string="Decrease lvl"/>
+                <field name="sector"/>
+              </tree>
+            </field>
+          </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="edgeworld.player_list_tree">
+      <field name="name">edgeworld list</field>
+      <field name="model">edgeworld.player</field>
+      <field name="arch" type="xml">
+        <tree decoration-it="age>0">
+          <field name="avatar" widget="avatar"/>
+          <field name="name"/>
+          <field name="user"/>
+          <field name="age"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="edgeworld.sector_list">
+      <field name="name">edgeworld list</field>
+      <field name="model">edgeworld.sector</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+          <group>
+            <field name="name"/>
+            <field name="population"/>
+            <field name="base"/>
+          </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="edgeworld.sector_list_tree">
+      <field name="name">edgeworld list</field>
+      <field name="model">edgeworld.sector</field>
+      <field name="arch" type="xml">
+        <tree decoration-it="population!=''">
+          <field name="name"/>
+          <field name="population"/>
+          <field name="base" mode="tree">
+              <tree>
+                <field name="name"/>
+              </tree>
+            </field>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="edgeworld.base_list">
+      <field name="name">edgeworld list</field>
+      <field name="model">edgeworld.base</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+          <group>
+            <group>
+            <field name="name"/>
+            <field name="level"/>
+            </group>
+            <group>
+            <field name="player"/>
+            <field name="sector"/>
+            </group>
+          </group>
+            <notebook>
+              <page string="Troops">
+                <group>
+                  <field name="troop">
+                    <kanban>
+                    <field name="id"/>
+                    <field name="image" widget="image"/>
+                    <templates>
+                      <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_card o_kanban_record_has_image_fill" >
+                          <div class="o_kanban_image_fill_left o_kanban_image_full d-none d-md-block "
+                               t-attf-style="background-image:url('#{kanban_image('edgeworld.troop', 'image', record.id.value, placeholder)}')"></div>
+                            <div class="oe_kanban_details d-flex flex-column" >
+                              <a type="open">
+                                <h4 class="o_kanban_record_title oe_partner_heading"><field name="name"/></h4>
+                              </a>
+                              <ul>
+                                <li>Nivel:
+                                  <field name="level"/>
+                                </li>
+                                <li>
+                                  <button name="level_up_troop" type="object" width="50" height="50">Increase lvl</button>
+                                  <button name="level_down_troop" type="object" width="50" height="50">Decrease lvl</button>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </t>
+                    </templates>
+                    </kanban>
+                  </field>
+                </group>
+              </page>
+              <page string="Buildings">
+                <group>
+                  <field name="building">
+                    <kanban>
+                    <field name="id"/>
+                    <field name="image" widget="image"/>
+                    <templates>
+                      <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_card o_kanban_record_has_image_fill" >
+                          <div class="o_kanban_image_fill_left o_kanban_image_full d-none d-md-block "
+                               t-attf-style="background-image:url('#{kanban_image('edgeworld.building', 'image', record.id.value, placeholder)}')"></div>
+                            <div class="oe_kanban_details d-flex flex-column" >
+                              <a type="open">
+                                <h4 class="o_kanban_record_title oe_partner_heading"><field name="name"/></h4>
+                              </a>
+                              <ul>
+                                <li>Nivel:
+                                  <field name="level"/>
+                                </li>
+                                <li>
+                                  <button name="level_up_building" type="object" width="50" height="50">Increase lvl</button>
+                                  <button name="level_down_building" type="object" width="50" height="50">Decrease lvl</button>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </t>
+                    </templates>
+                    </kanban>
+                  </field>
+                </group>
+              </page>
+              <page string="Defense buildings">
+                <group>
+                  <field name="defense_building">
+                    <kanban>
+                    <field name="id"/>
+                    <field name="image" widget="image"/>
+                    <templates>
+                      <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_card o_kanban_record_has_image_fill" >
+                          <div class="o_kanban_image_fill_left o_kanban_image_full d-none d-md-block "
+                               t-attf-style="background-image:url('#{kanban_image('edgeworld.defense_building', 'image', record.id.value, placeholder)}')"></div>
+                            <div class="oe_kanban_details d-flex flex-column" >
+                              <a type="open">
+                                <h4 class="o_kanban_record_title oe_partner_heading"><field name="name"/></h4>
+                              </a>
+                              <ul>
+                                <li>Nivel:
+                                  <field name="level"/>
+                                </li>
+                                <li>
+                                  <button name="level_up_defense_building" type="object" width="50" height="50">Increase lvl</button>
+                                  <button name="level_down_defense_building" type="object" width="50" height="50">Decrease lvl</button>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </t>
+                    </templates>
+                    </kanban>
+                  </field>
+                </group>
+              </page>
+              <page string="Resource buildings">
+                <group>
+                  <field name="resource_building">
+                    <kanban>
+                    <field name="id"/>
+                    <field name="image" widget="image"/>
+                    <templates>
+                      <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_card o_kanban_record_has_image_fill" >
+                          <div class="o_kanban_image_fill_left o_kanban_image_full d-none d-md-block "
+                               t-attf-style="background-image:url('#{kanban_image('edgeworld.resource_building', 'image', record.id.value, placeholder)}')"></div>
+                            <div class="oe_kanban_details d-flex flex-column" >
+                              <a type="open">
+                                <h4 class="o_kanban_record_title oe_partner_heading"><field name="name"/></h4>
+                              </a>
+                              <ul>
+                                <li>Nivel:
+                                  <field name="level"/>
+                                </li>
+                                <li>
+                                  <button name="level_up_resource_building" type="object" width="50" height="50">Increase lvl</button>
+                                  <button name="level_down_resource_building" type="object" width="50" height="50">Decrease lvl</button>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </t>
+                    </templates>
+                    </kanban>
+                  </field>
+                </group>
+              </page>
+            </notebook>
+            <notebook>
+              <page string="Capacity">
+                <group>
+                  <field name="troop_capacity"></field>
+                  <field name="resource_capacity"></field>
+                </group>
+              </page>
+              <page string="Resources">
+                <group>
+                  <group>
+                    <field name="crystal"></field>
+                    <field name="gas"></field>
+                  </group>
+                  <group>
+                    <field name="energy"></field>
+                    <field name="uranium"></field>
+                  </group>
+                </group>
+              </page>
+            </notebook>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="edgeworld.base_list_tree">
+      <field name="name">edgeworld list</field>
+      <field name="model">edgeworld.base</field>
+      <field name="arch" type="xml">
+        <tree decoration-it="level>0">
+          <field name="name"/>
+          <field name="level"/>
+          <field name="player"/>
+          <field name="sector"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="edgeworld.troop_list">
+      <field name="name">edgeworld list</field>
+      <field name="model">edgeworld.troop</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+          <group>
+            <field name="name"/>
+            <field name="level"/>
+            <field name="troop_type"/>
+          </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="edgeworld.troop_type_list">
+      <field name="name">edgeworld list</field>
+      <field name="model">edgeworld.troop_type</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+          <group>
+            <field name="image" widget="image"/>
+            <field name="name"/>
+            <field name="health"/>
+            <field name="damage"/>
+            <field name="transport_size"/>
+          </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="edgeworld.troop_type_list_tree">
+      <field name="name">edgeworld list</field>
+      <field name="model">edgeworld.troop_type</field>
+      <field name="arch" type="xml">
+        <tree decoration-danger="damage>0">
+          <field name="image" widget="image"/>
+          <field name="name"/>
+          <field name="health"/>
+          <field name="damage"/>
+          <field name="transport_size"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="edgeworld.defense_building_list">
+      <field name="name">edgeworld list</field>
+      <field name="model">edgeworld.defense_building</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+          <group>
+            <field name="name"/>
+            <field name="level"/>
+            <field name="defense_building_type"/>
+          </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="edgeworld.defense_building_type_list">
+      <field name="name">edgeworld list</field>
+      <field name="model">edgeworld.defense_building_type</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+          <group>
+            <field name="image" widget="image"/>
+            <field name="name"/>
+            <field name="health"/>
+            <field name="damage"/>
+          </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="edgeworld.defense_building_type_list_tree">
+      <field name="name">edgeworld list</field>
+      <field name="model">edgeworld.defense_building_type</field>
+      <field name="arch" type="xml">
+        <tree decoration-info="health>0">
+          <field name="image" widget="image"/>
+          <field name="name"/>
+          <field name="health"/>
+          <field name="damage"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="edgeworld.building_list">
+      <field name="name">edgeworld list</field>
+      <field name="model">edgeworld.building</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+          <group>
+            <field name="name"/>
+            <field name="level"/>
+            <field name="building_type"/>
+          </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="edgeworld.building_type_list">
+      <field name="name">edgeworld list</field>
+      <field name="model">edgeworld.building_type</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+          <group>
+            <field name="image" widget="image"/>
+            <field name="name"/>
+            <field name="health"/>
+            <field name="troop_capacity" attrs="{'invisible': [('troop_capacity', '=', 0)]}"/>
+            <field name="stargate_capacity" attrs="{'invisible': [('stargate_capacity', '=', 0)]}"/>
+          </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="edgeworld.building_type_list_tree">
+      <field name="name">edgeworld list</field>
+      <field name="model">edgeworld.building_type</field>
+      <field name="arch" type="xml">
+        <tree decoration-success="health>0">
+          <field name="image" widget="image"/>
+          <field name="name"/>
+          <field name="health"/>
+          <field name="troop_capacity" attrs="{'invisible': [('troop_capacity', '=', 0)]}"/>
+          <field name="stargate_capacity" attrs="{'invisible': [('stargate_capacity', '=', 0)]}"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="edgeworld.resource_building_list">
+      <field name="name">edgeworld list</field>
+      <field name="model">edgeworld.resource_building</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+          <group>
+            <field name="name"/>
+            <field name="level"/>
+            <field name="resource_building_type"/>
+          </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="edgeworld.resource_building_type_list">
+      <field name="name">edgeworld list</field>
+      <field name="model">edgeworld.resource_building_type</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+          <group>
+            <field name="image" widget="image"/>
+            <field name="name"/>
+            <field name="health"/>
+            <field name="resource_capacity"/>
+            <field name="hourly_rate"/>
+          </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="edgeworld.resource_building_type_list_tree">
+      <field name="name">edgeworld list</field>
+      <field name="model">edgeworld.resource_building_type</field>
+      <field name="arch" type="xml">
+        <tree decoration-info="name=='Crystal Mine'" decoration-primary="name=='Gas Refinery'" decoration-warning="name=='Solar Plant'" decoration-success="name=='Reactor'">
+          <field name="image" widget="image"/>
+          <field name="name"/>
+          <field name="health"/>
+          <field name="resource_capacity"/>
+          <field name="hourly_rate"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="edgeworld.battles_calendar">
+            <field name="name">Battle calendar</field>
+            <field name="model">edgeworld.battles</field>
+            <field name="arch" type="xml">
+                <calendar string="Battles Calendar" date_start="date"
+                          date_delay="stop"
+                          color="base1">
+                    <field name="name"/>
+                    <field name="base1"/>
+                    <field name="base2"/>
+                </calendar>
+            </field>
+    </record>
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="edgeworld.action_player_window">
+      <field name="name">Edgeworld player window</field>
+      <field name="res_model">edgeworld.player</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <record model="ir.actions.act_window" id="edgeworld.action_base_window">
+      <field name="name">Edgeworld base window</field>
+      <field name="res_model">edgeworld.base</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <record model="ir.actions.act_window" id="edgeworld.action_sector_window">
+      <field name="name">Edgeworld sector window</field>
+      <field name="res_model">edgeworld.sector</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <record model="ir.actions.act_window" id="edgeworld.action_troop_window">
+      <field name="name">Edgeworld troop window</field>
+      <field name="res_model">edgeworld.troop</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <record model="ir.actions.act_window" id="edgeworld.action_troop_type_window">
+      <field name="name">Edgeworld troop type window</field>
+      <field name="res_model">edgeworld.troop_type</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <record model="ir.actions.act_window" id="edgeworld.action_defense_building_window">
+      <field name="name">Edgeworld defense window</field>
+      <field name="res_model">edgeworld.defense_building</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <record model="ir.actions.act_window" id="edgeworld.action_defense_building_type_window">
+      <field name="name">Edgeworld defense type window</field>
+      <field name="res_model">edgeworld.defense_building_type</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <record model="ir.actions.act_window" id="edgeworld.action_building_window">
+      <field name="name">Edgeworld building window</field>
+      <field name="res_model">edgeworld.building</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <record model="ir.actions.act_window" id="edgeworld.action_building_type_window">
+      <field name="name">Edgeworld building type window</field>
+      <field name="res_model">edgeworld.building_type</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <record model="ir.actions.act_window" id="edgeworld.action_resource_building_window">
+      <field name="name">Edgeworld resource building window</field>
+      <field name="res_model">edgeworld.resource_building</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <record model="ir.actions.act_window" id="edgeworld.action_resource_building_type_window">
+      <field name="name">Edgeworld resource building type window</field>
+      <field name="res_model">edgeworld.resource_building_type</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <record model="ir.actions.act_window" id="edgeworld.action_battles_window">
+      <field name="name">Edgeworld battles window</field>
+      <field name="res_model">edgeworld.battles</field>
+      <field name="view_mode">tree,form,calendar</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="edgeworld.action_server">
+      <field name="name">edgeworld server</field>
+      <field name="model_id" ref="model_edgeworld_edgeworld"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+
+    <menuitem name="Edgeworld" id="edgeworld.menu_root"/>
+-->
+
+    <!-- menu categories -->
+
+    <menuitem name="Game" id="edgeworld.menu_game" parent="edgeworld.menu_root"/>
+    <menuitem name="Battle" id="edgeworld.menu_battle" parent="edgeworld.menu_root"/>
+-->
+
+    <!-- actions -->
+
+    <menuitem name="Players" id="edgeworld.menu_player_list" parent="edgeworld.menu_game"
+              action="edgeworld.action_player_window"/>
+    <menuitem name="Bases" id="edgeworld.menu_base_list" parent="edgeworld.menu_game"
+              action="edgeworld.action_base_window"/>
+    <menuitem name="Sectors" id="edgeworld.menu_sector_list" parent="edgeworld.menu_game"
+              action="edgeworld.action_sector_window"/>
+    <menuitem name="Troop type" id="edgeworld.menu_troop_type_list" parent="edgeworld.menu_game"
+              action="edgeworld.action_troop_type_window"/>
+    <menuitem name="Defense building type" id="edgeworld.menu_defense_building_type_list" parent="edgeworld.menu_game"
+              action="edgeworld.action_defense_building_type_window"/>
+    <menuitem name="Building type" id="edgeworld.menu_building_type_list" parent="edgeworld.menu_game"
+              action="edgeworld.action_building_type_window"/>
+    <menuitem name="Resource building type" id="edgeworld.menu_resource_building_type_list" parent="edgeworld.menu_game"
+              action="edgeworld.action_resource_building_type_window"/>
+    <menuitem name="Battles" id="edgeworld.menu_battles" parent="edgeworld.menu_battle"
+              action="edgeworld.action_battles_window"/>
+-->
+  </data>
+</odoo>

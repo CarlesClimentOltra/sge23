@@ -1,0 +1,24 @@
+<odoo>
+    <data>
+
+          <!--TIPOS DE BUILDING-->
+          <record id="edgeworld.building_type_command_center" model="edgeworld.building_type">
+            <field name="name">Command Center</field>
+            <field name="health">500</field>
+            <field name="troop_capacity">0</field>
+            <field name="stargate_capacity">0</field>
+          </record>
+          <record id="edgeworld.building_type_stargate" model="edgeworld.building_type">
+            <field name="name">Stargate</field>
+            <field name="health">500</field>
+            <field name="troop_capacity">0</field>
+            <field name="stargate_capacity">50</field>
+          </record>
+          <record id="edgeworld.building_type_staging_area" model="edgeworld.building_type">
+            <field name="name">Staging Area</field>
+            <field name="health">450</field>
+            <field name="troop_capacity">50</field>
+            <field name="stargate_capacity">0</field>
+          </record>
+    </data>
+</odoo>
