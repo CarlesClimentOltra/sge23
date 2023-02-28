@@ -315,7 +315,7 @@ cIDQZFmhQUMHo7jVLFiqBg0dTqtgYSmpGjR0OG0EG6dBQ4dzS7BUWaFBQwfTKlh4apoGDR2OKtj+
 nH379vH/AfZAcdsNqTfeAAAAAElFTkSuQmCC</field>
             <field name="name">Crystal Mine</field>
             <field name="health">100</field>
-            <field name="capacity">600</field>
+            <field name="resource_capacity">600</field>
             <field name="hourly_rate">600</field>
           </record>
           <record id="edgeworld.resource_building_type_gasrefinery" model="edgeworld.resource_building_type">
@@ -593,7 +593,7 @@ YnqaLsFSaUCMmB5m9+7dHBIsnQbEiOlZhIKFp6VDjJiepptgE2hAjJiepUuwdBoQI6aHEQoWkT4R
 YsT0NLt27SJ24X8Dvtmhc27QcZYAAAAASUVORK5CYII=</field>
             <field name="name">Gas Refinery</field>
             <field name="health">100</field>
-            <field name="capacity">600</field>
+            <field name="resource_capacity">600</field>
             <field name="hourly_rate">600</field>
           </record>
           <record id="edgeworld.resource_building_type_solarplant" model="edgeworld.resource_building_type">
@@ -888,7 +888,7 @@ p+tUqGh32kj2mQoV7Y6iZOuoUYWKdkZBsoXr1qtQ0e7IJCstLcXCz6hRhYp2hrnFaJFsgwoV7Y6C
 ZIvWb1Chot1pI9lGFSraHUXJNlCjChXtDC9ZKf4fh6OEFF6+vsQAAAAASUVORK5CYII=</field>
             <field name="name">Solar Plant</field>
             <field name="health">100</field>
-            <field name="capacity">600</field>
+            <field name="resource_capacity">600</field>
             <field name="hourly_rate">600</field>
           </record>
           <record id="edgeworld.resource_building_type_reactor" model="edgeworld.resource_building_type">
@@ -1093,7 +1093,7 @@ Cj1Nl1xVoqGg0LOo5ZorGgoKPYwsV/7cahQUehq1XFWioaDQw5w8eVKSq0Y0FBR6FlmuguoaFBR6
 mi65akVDQaFnUctVIxoKCj2MLFdhTR0KCj3NO++8w/8B3pvJ5FIPkU8AAAAASUVORK5CYII=</field>
             <field name="name">Reactor</field>
             <field name="health">100</field>
-            <field name="capacity">600</field>
+            <field name="resource_capacity">600</field>
             <field name="hourly_rate">600</field>
           </record>
           <record id="edgeworld.resource_building_type_resourceconverter" model="edgeworld.resource_building_type">
@@ -1368,7 +1368,7 @@ dPQ7zK1BTz75JO1M0qGj32FuDXrqqadQO5EqdOjoZ5hbXLC6iZN16Oh3uGCnT5/WelDH7U/DlKlo
 mzELrZ0ztR7/LVroNSfOnMHFy69qPc5oaO/gaDv2n3D69Gn8Hw5o58o9DZNCAAAAAElFTkSuQmCC</field>
             <field name="name">Resource Converter</field>
             <field name="health">100</field>
-            <field name="capacity">4000</field>
+            <field name="resource_capacity">4000</field>
             <field name="hourly_rate">0</field>
           </record>
           <record id="edgeworld.resource_building_type_supplydepot" model="edgeworld.resource_building_type">
@@ -1535,7 +1535,7 @@ txhPdXV1UWCvgIDMYW4xnuru7oZbCAUFBGQMc4vBJdsZEiogIHPmJOvp6ZG6gcCTgWd4BEfauh/C
 L3o/2vv6cOnyuNT13hFRCNgfC5/IaKnr/x2YWz09Pfj/T6G+88uooxIAAAAASUVORK5CYII=</field>
             <field name="name">Supply Depot</field>
             <field name="health">300</field>
-            <field name="capacity">1000</field>
+            <field name="resource_capacity">1000</field>
             <field name="hourly_rate">0</field>
           </record>
 

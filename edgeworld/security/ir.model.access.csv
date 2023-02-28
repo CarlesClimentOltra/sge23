@@ -1,5 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_edgeworld_player,edgeworld.player,model_edgeworld_player,base.group_user,1,1,1,1
 access_edgeworld_base,edgeworld.base,model_edgeworld_base,base.group_user,1,1,1,1
 access_edgeworld_sector,edgeworld.sector,model_edgeworld_sector,base.group_user,1,1,1,1
 access_edgeworld_troop,edgeworld.troop,model_edgeworld_troop,base.group_user,1,1,1,1
@@ -11,3 +10,9 @@ access_edgeworld_building_type,edgeworld.building_type,model_edgeworld_building_
 access_edgeworld_resource_building,edgeworld.resource_building,model_edgeworld_resource_building,base.group_user,1,1,1,1
 access_edgeworld_resource_building_type,edgeworld.resource_building_type,model_edgeworld_resource_building_type,base.group_user,1,1,1,1
 access_edgeworld_battles,edgeworld.battles,model_edgeworld_battles,base.group_user,1,1,1,1
+access_edgeworld_player_wizard,edgeworld.player_wizard,model_edgeworld_player_wizard,base.group_user,1,1,1,1
+access_edgeworld_battle_wizard,edgeworld.battle_wizard,model_edgeworld_battle_wizard,base.group_user,1,1,1,1
+access_edgeworld_troop_wizard,edgeworld.troop_wizard,model_edgeworld_troop_wizard,base.group_user,1,1,1,1
+access_edgeworld_building_wizard,edgeworld.building_wizard,model_edgeworld_building_wizard,base.group_user,1,1,1,1
+access_edgeworld_defense_building_wizard,edgeworld.defense_building_wizard,model_edgeworld_defense_building_wizard,base.group_user,1,1,1,1
+access_edgeworld_resource_building_wizard,edgeworld.resource_building_wizard,model_edgeworld_resource_building_wizard,base.group_user,1,1,1,1

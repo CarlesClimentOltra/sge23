@@ -2,9 +2,209 @@
   <data>
     <!-- explicit list view definition -->
 
+    <record model="ir.actions.act_window" id="edgeworld.battle_wizard_action">
+      <field name="name">battle wizard</field>
+      <field name="res_model">edgeworld.battle_wizard</field>
+      <field name="view_mode">form</field>
+      <field name="target">new</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="edgeworld.troop_wizard_action">
+      <field name="name">troop wizard</field>
+      <field name="res_model">edgeworld.troop_wizard</field>
+      <field name="view_mode">form</field>
+      <field name="target">new</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="edgeworld.building_wizard_action">
+      <field name="name">building wizard</field>
+      <field name="res_model">edgeworld.building_wizard</field>
+      <field name="view_mode">form</field>
+      <field name="target">new</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="edgeworld.defense_building_wizard_action">
+      <field name="name">defense building wizard</field>
+      <field name="res_model">edgeworld.defense_building_wizard</field>
+      <field name="view_mode">form</field>
+      <field name="target">new</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="edgeworld.resource_building_wizard_action">
+      <field name="name">resource building wizard</field>
+      <field name="res_model">edgeworld.resource_building_wizard</field>
+      <field name="view_mode">form</field>
+      <field name="target">new</field>
+    </record>
+
+    <record model="ir.ui.view" id="edgeworld.battle_wizard_view">
+            <field name="name">edgeworld battle wizard view</field>
+            <field name="model">edgeworld.battle_wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <field name="state" widget="statusbar"/>
+                        <button name="action_previous" type="object"
+                                string="Previous"
+                                states="2,3"/>
+                        <button name="action_next" type="object"
+                                string="Next" states="1,2"
+                                class="oe_highlight"/>
+                    </header>
+                    <group states="1">
+                        <field name="name"/>
+                        <field name="base1"/>
+                    </group>
+                    <group states="2">
+                        <field name="base2"/>
+                    </group>
+
+                    <group states="3">
+                        <field name="base1"/>
+                        <field name="base2"/>
+                        <field name="date"/>
+                        <footer>
+                          <button name="create_battle"
+                                type="object"
+                                string="Add"
+                                class="btn btn-primary"
+                          ></button>
+                        </footer>
+                    </group>
+
+                </form>
+            </field>
+    </record>
+
+    <record model="ir.ui.view" id="edgeworld.troop_wizard_view">
+            <field name="name">edgeworld troop wizard view</field>
+            <field name="model">edgeworld.troop_wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+
+                    <group states="1">
+                        <field name="name"/>
+                        <field name="level"/>
+                        <field name="troop_type"/>
+                        <footer>
+                          <button name="create_troop"
+                                type="object"
+                                string="Add"
+                                class="btn btn-primary"
+                          ></button>
+                        </footer>
+                    </group>
+
+                </form>
+            </field>
+    </record>
+
+    <record model="ir.ui.view" id="edgeworld.building_wizard_view">
+            <field name="name">edgeworld building wizard view</field>
+            <field name="model">edgeworld.building_wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+
+                    <group states="1">
+                        <field name="name"/>
+                        <field name="level"/>
+                        <field name="building_type"/>
+                        <footer>
+                          <button name="create_building"
+                                type="object"
+                                string="Add"
+                                class="btn btn-primary"
+                          ></button>
+                        </footer>
+                    </group>
+
+                </form>
+            </field>
+    </record>
+
+    <record model="ir.ui.view" id="edgeworld.defense_building_wizard_view">
+            <field name="name">edgeworld defense building wizard view</field>
+            <field name="model">edgeworld.defense_building_wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+
+                    <group states="1">
+                        <field name="name"/>
+                        <field name="level"/>
+                        <field name="defense_building_type"/>
+                        <footer>
+                          <button name="create_defense_building"
+                                type="object"
+                                string="Add"
+                                class="btn btn-primary"
+                          ></button>
+                        </footer>
+                    </group>
+
+                </form>
+            </field>
+    </record>
+
+    <record model="ir.ui.view" id="edgeworld.resource_building_wizard_view">
+            <field name="name">edgeworld resource building wizard view</field>
+            <field name="model">edgeworld.resource_building_wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <field name="state" widget="statusbar"/>
+                    </header>
+
+                    <group states="1">
+                        <field name="name"/>
+                        <field name="level"/>
+                        <field name="resource_building_type"/>
+                        <footer>
+                          <button name="create_resource_building"
+                                type="object"
+                                string="Add"
+                                class="btn btn-primary"
+                          ></button>
+                        </footer>
+                    </group>
+
+                </form>
+            </field>
+    </record>
+
+    <record model="ir.ui.view" id="edgeworld.player_wizard_form">
+            <field name="name">edgeworld player wizard</field>
+            <field name="model">edgeworld.player_wizard</field>
+            <field name="arch" type="xml">
+                <form>
+
+                        <group>
+                            <field name="avatar" widget="image"  class="oe_avatar"/>
+                            <field name="user"/>
+                            <field name="age"/>
+                        </group>
+
+                     <footer>
+                        <button name="create_player" type="object"
+                                string="Create" class="oe_highlight"/>
+                        <button special="cancel" string="Cancel"/>
+                    </footer>
+
+                </form>
+            </field>
+        </record>
+
     <record model="ir.ui.view" id="edgeworld.player_list">
       <field name="name">edgeworld list</field>
-      <field name="model">edgeworld.player</field>
+      <field name="model">res.partner</field>
       <field name="arch" type="xml">
         <form>
           <sheet>
@@ -13,6 +213,7 @@
             <field name="name"/>
             <field name="user"/>
             <field name="age"/>
+            <field name="is_player"/>
             <field name="base" mode="tree">
               <tree>
                 <field name="name"/>
@@ -30,7 +231,7 @@
 
     <record model="ir.ui.view" id="edgeworld.player_list_tree">
       <field name="name">edgeworld list</field>
-      <field name="model">edgeworld.player</field>
+      <field name="model">res.partner</field>
       <field name="arch" type="xml">
         <tree decoration-it="age>0">
           <field name="avatar" widget="avatar"/>
@@ -39,6 +240,46 @@
           <field name="age"/>
         </tree>
       </field>
+    </record>
+
+    <record model="ir.ui.view" id="edgeworld.player_search">
+      <field name="name">edgeworld search</field>
+      <field name="model">res.partner</field>
+      <field name="priority" eval="17"/>
+      <field name="arch" type="xml">
+        <search>
+          <filter name="player_partner" string="Is Player" domain="[('is_player','=',True)]"/>
+          <field name="avatar" widget="avatar"/>
+          <field name="name"/>
+          <field name="user"/>
+          <field name="age"/>
+        </search>
+      </field>
+    </record>
+
+    <record id="edgeworld.player_wizard_action" model="ir.actions.act_window">
+            <field name="name">Create Player</field>
+            <field name="res_model">edgeworld.player_wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+            <field name="binding_model_id" ref="base.model_res_partner"/>
+    </record>
+
+    <record model="ir.ui.view" id="edgeworld.player_partner_form">
+            <field name="name">edgeworld partner list</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <notebook position="inside">
+                    <page string="Edgeworld">
+                        <group>
+                            <field name="avatar" widget="image"  class="oe_avatar"/>
+                            <button name="%(edgeworld.player_wizard_action)d"
+                                     type="action" string="Create Player" class="oe_highlight" />
+                        </group>
+                    </page>
+                </notebook>
+            </field>
     </record>
 
     <record model="ir.ui.view" id="edgeworld.sector_list">
@@ -81,6 +322,9 @@
           <sheet>
           <group>
             <group>
+            <button name="%(edgeworld.battle_wizard_action)d"
+        type="action" string="Create new Battle"
+        class="oe_highlight" />
             <field name="name"/>
             <field name="level"/>
             </group>
@@ -91,6 +335,9 @@
           </group>
             <notebook>
               <page string="Troops">
+                <button name="%(edgeworld.troop_wizard_action)d"
+                  type="action" string="Create Troop"
+                  class="oe_highlight" />
                 <group>
                   <field name="troop">
                     <kanban>
@@ -123,6 +370,9 @@
                 </group>
               </page>
               <page string="Buildings">
+                <button name="%(edgeworld.building_wizard_action)d"
+                  type="action" string="Create Building"
+                  class="oe_highlight" />
                 <group>
                   <field name="building">
                     <kanban>
@@ -155,6 +405,9 @@
                 </group>
               </page>
               <page string="Defense buildings">
+                <button name="%(edgeworld.defense_building_wizard_action)d"
+                  type="action" string="Create Defense Building"
+                  class="oe_highlight" />
                 <group>
                   <field name="defense_building">
                     <kanban>
@@ -187,6 +440,9 @@
                 </group>
               </page>
               <page string="Resource buildings">
+                <button name="%(edgeworld.resource_building_wizard_action)d"
+                  type="action" string="Create Resource Building"
+                  class="oe_highlight" />
                 <group>
                   <field name="resource_building">
                     <kanban>
@@ -302,6 +558,17 @@
           <field name="damage"/>
           <field name="transport_size"/>
         </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="edgeworld.troop_type_graph">
+      <field name="name">edgeworld graph</field>
+      <field name="model">edgeworld.troop_type</field>
+      <field name="arch" type="xml">
+        <graph string="Troop Types by Damage (Normalized)">
+          <field name="name"/>
+          <field name="damage_normalized" type="avg"/>
+        </graph>
       </field>
     </record>
 
@@ -452,7 +719,6 @@
             <field name="model">edgeworld.battles</field>
             <field name="arch" type="xml">
                 <calendar string="Battles Calendar" date_start="date"
-                          date_delay="stop"
                           color="base1">
                     <field name="name"/>
                     <field name="base1"/>
@@ -461,11 +727,30 @@
             </field>
     </record>
 
+    <record model="ir.ui.view" id="edgeworld.battles_search">
+      <field name="name">edgeworld search</field>
+      <field name="model">edgeworld.battles</field>
+      <field name="priority" eval="18"/>
+      <field name="arch" type="xml">
+        <search>
+          <filter name="battles_partner" string="Has passed" domain="[('has_passed','=',False)]"/>
+          <field name="name"/>
+          <field name="base1"/>
+          <field name="base2"/>
+          <field name="date"/>
+        </search>
+      </field>
+    </record>
+
     <!-- actions opening views on models -->
 
     <record model="ir.actions.act_window" id="edgeworld.action_player_window">
       <field name="name">Edgeworld player window</field>
-      <field name="res_model">edgeworld.player</field>
+      <field name="res_model">res.partner</field>
+      <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree', 'view_id': ref('edgeworld.player_list_tree')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('edgeworld.player_list')}),]" />
+       <field name="search_view_id" ref="edgeworld.player_search"/>
       <field name="view_mode">tree,form</field>
     </record>
     <record model="ir.actions.act_window" id="edgeworld.action_base_window">
@@ -486,7 +771,7 @@
     <record model="ir.actions.act_window" id="edgeworld.action_troop_type_window">
       <field name="name">Edgeworld troop type window</field>
       <field name="res_model">edgeworld.troop_type</field>
-      <field name="view_mode">tree,form</field>
+      <field name="view_mode">tree,form,graph</field>
     </record>
     <record model="ir.actions.act_window" id="edgeworld.action_defense_building_window">
       <field name="name">Edgeworld defense window</field>
@@ -522,7 +807,10 @@
       <field name="name">Edgeworld battles window</field>
       <field name="res_model">edgeworld.battles</field>
       <field name="view_mode">tree,form,calendar</field>
+      <field name="context">{'search_default_battles_partner':1}</field>
     </record>
+
+
 -->
 
     <!-- server action to the one above -->
